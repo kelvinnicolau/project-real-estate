@@ -1,10 +1,14 @@
+import Banner from "./components/Banner"
+import Header from "./components/Header"
+import Global from "./styles/Global"
+
 function App() {
   return (
     <>
       <div>
-        <h2>
-          Hello World!
-        </h2>
+        <Header />
+        <Banner />
+        <Global />
       </div>
     </>
   )
