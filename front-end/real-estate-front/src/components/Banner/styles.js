@@ -8,8 +8,8 @@ export const Container = styled.div`
     background-size: cover;
     background-position: center;
     background-image: url(${Banner});
-    :before {
-        background-color: rgba(0, 0, 0, .1);
+    &:before {
+        background-color: rgba(0, 0, 0, .4);
         content: '';
         position: absolute;
         top: 0;
