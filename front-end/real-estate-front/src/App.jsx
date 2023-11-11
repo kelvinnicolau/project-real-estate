@@ -1,12 +1,10 @@
-import Header from "./components/Header"
-import Footer from "./components/Footer"
+import RouterApp from "./routes"
 import Global from "./styles/Global"
 
 function App() {
   return (
     <div>
-      <Header />
-      <Footer />
+      <RouterApp/>
       <Global />
     </div>
   )

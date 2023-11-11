@@ -1,15 +1,16 @@
 import { Container, Logo, Menu } from "./styles";
 import LogoImg from "../../assets/logo.jpg";
+import { Link } from "react-router-dom";
 
 function Header () {
     return (
       <Container>
         <Logo>
-            <img src={LogoImg} alt="" />
+            <Link to='/'><img src={LogoImg} alt="" /></Link>
         </Logo>
         <Menu>
             <ul>
-                <li><span>Cadastro/Login</span></li>
+                <li><Link to='/login'><span>Cadastro/Login</span></Link></li>
             </ul>
         </Menu>
       </Container>

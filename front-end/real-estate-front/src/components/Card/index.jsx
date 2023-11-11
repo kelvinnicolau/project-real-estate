@@ -1,6 +1,7 @@
 import { Container, Description, Img, Itens } from "./styles";
 import imgCard from '../../assets/banner.jpg';
 import { FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Card () {
     return (
@@ -14,7 +15,7 @@ function Card () {
                 <span><FaMapMarkerAlt />Centro, Santa Rosa</span>
                 <span>R$ 1.400,00 / mês</span>
             </Itens>
-            <a href="#">Detalhes <FaArrowRight /></a>
+            <Link to='/imovel'>Detalhes <FaArrowRight /></Link>
         </Description>
       </Container>
     )
