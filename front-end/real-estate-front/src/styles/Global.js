@@ -24,7 +24,7 @@ export default createGlobalStyle`
         font-family: 'Dosis', sans-serif;
     }
 
-    ul {
+    ul, nav {
         list-style: none;
     }
 
