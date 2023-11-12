@@ -1,5 +1,5 @@
 export default {
-    async createUser(reques, response){
+    async createUser(request, response){
         try {
             
         } catch (error) {
