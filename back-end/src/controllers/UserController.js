@@ -2,29 +2,38 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default {
-    async createUser(request, response){
+  async createUser(request, response) {
 
-        const { name, email, password } = request.body
+    const { name, email, password } = request.body;
 
-        try {
-            const user = await prisma.user.findUnique({ where: { email} });
+    try {
+      let user = await prisma.user.findUnique({ where: { email } });
 
-            if(!user){
-                return response.json({ message: "Usuário não existe"});
-            }
+      if (user) {
+        return response.json({ 
+          error: true,
+          message: "Erro: Usuário já existe!" 
+        });
+      }
 
-            user = await prisma.user({
-                data: {
-                    name,
-                    email,
-                    password
-                }
-            });
+      const HashPassword = await hash(password, 8);
 
-            return response.json(user);
-
-        } catch (error) {
-            return response.json({ message: error.message })
+      user = await prisma.user.create({
+        data: {
+          name,
+          email,
+          password: HashPassword
         }
+      });
+
+      return response.json({
+        error: false,
+        message: "Sucesso: Usuário cadastrado com sucesso!",
+        user
+      });
+
+    } catch (error) {
+      return response.json({ message: error.message })
     }
+  },
 }
